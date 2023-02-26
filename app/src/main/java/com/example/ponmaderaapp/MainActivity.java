@@ -21,13 +21,13 @@ public class MainActivity extends AppCompatActivity {
         webView = (WebView)findViewById(R.id.activity_main_webview);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webView.loadUrl("https://job.ponmadera.com/trabajador");
+        webView.loadUrl(getString(R.string.url_ponmadera));
         webView.setWebViewClient(new WebViewClient() {
 
             @Override
             public void onPageFinished(WebView web, String url) {
-                final String encodePassword = "Q2hhMTI3YWQxNDAxY2hhcG9u";
-                byte[] data = Base64.decode(encodePassword, Base64.DEFAULT);
+
+                byte[] data = Base64.decode(getString(R.string.encode_password), Base64.DEFAULT);
                 try {
                     final String password = new String(data, "UTF-8");
                     webView.loadUrl("javascript:(function(){document.getElementById('inputEmail').value = 'jchantej@gmail.com';document.getElementById('inputPassword').value = '"+password+"';})()");
@@ -46,4 +46,5 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
 }
