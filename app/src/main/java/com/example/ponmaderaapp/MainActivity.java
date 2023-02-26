@@ -18,6 +18,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        loadPage();
+    }
+    @Override
+    public void onBackPressed(){
+        if(webView.canGoBack()){
+            webView.goBack();
+        }else{
+            super.onBackPressed();
+        }
+    }
+
+    private void loadPage(){
         webView = (WebView)findViewById(R.id.activity_main_webview);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -36,15 +48,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
-    @Override
-    public void onBackPressed(){
-        if(webView.canGoBack()){
-            webView.goBack();
-        }else{
-            super.onBackPressed();
-        }
-    }
-
 }
