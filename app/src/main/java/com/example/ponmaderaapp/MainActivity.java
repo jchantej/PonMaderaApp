@@ -20,5 +20,14 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webView.loadUrl("https://job.ponmadera.com/trabajador");
         webView.setWebViewClient(new WebViewClient());
+
+    }
+    @Override
+    public void onBackPressed(){
+        if(webView.canGoBack()){
+            webView.goBack();
+        }else{
+            super.onBackPressed();
+        }
     }
 }
