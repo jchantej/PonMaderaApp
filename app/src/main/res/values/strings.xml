@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">PonMaderaApp</string>
+    <string name="app_name">PonMadera</string>
+    <string name="url_ponmadera">https://job.ponmadera.com/trabajador</string>
+    <string name="encode_password">Q2hhMTI3YWQxNDAxY2hhcG9u</string>
 </resources>
